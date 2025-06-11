@@ -1,3 +1,16 @@
+(defvar
+  left-hand-keys (
+    w l y p b
+    c r s t g
+    q j v d k
+  )
+  right-hand-keys (
+    z f o u ;
+    m n e i a
+    x h / , .
+  )
+)
+
 (defalias
   mc  C-up         ;; Mission Control
   sls M-spc        ;; Spotlight Search
@@ -7,6 +20,16 @@
   qwr (layer-switch qwerty)  ;; Switch to QWERTY
   cnr (layer-switch canary)  ;; Switch to Canary
   grl (layer-while-held layers) ;; Hold grave for layer switching
+  
+  ;; Home row mods for Canary layout
+  c_c (tap-hold-release-keys 200 200 c lctl $left-hand-keys)    ;; C with Control
+  r_a (tap-hold-release-keys 200 200 r lalt $left-hand-keys)    ;; R with Alt
+  s_s (tap-hold-release-keys 200 200 s lsft $left-hand-keys)    ;; S with Shift
+  t_m (tap-hold-release-keys 200 200 t lmet $left-hand-keys)    ;; T with Meta
+  n_m (tap-hold-release-keys 200 200 n rmet $right-hand-keys)   ;; N with Meta
+  e_s (tap-hold-release-keys 200 200 e rsft $right-hand-keys)   ;; E with Shift
+  i_a (tap-hold-release-keys 200 200 i ralt $right-hand-keys)   ;; I with Alt
+  a_c (tap-hold-release-keys 200 200 a rctl $right-hand-keys)   ;; A with Control
 )
 
 (defsrc
@@ -31,7 +54,7 @@
   esc  🔅   🔆   @mc  @sls @dtn @dnd ◀◀   ▶⏸   ▶▶   🔇   🔉   🔊
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  w    l    y    p    b    z    f    o    u    ;    [    ]    \
-  esc  c    r    s    t    g    m    n    e    i    a    '    ret
+  esc  @c_c @r_a @s_s @t_m g    m    @n_m @e_s @i_a @a_c '    ret
   q    j    v    d    k    _    x    h    /    ,    .    rsft
   lctl lmet lalt           spc            ralt rmet rctl
 )
