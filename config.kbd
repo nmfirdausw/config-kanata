@@ -23,3 +23,12 @@
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet rctl
 )
+
+(deflayer canary
+  esc  🔅   🔆   @mc  @sls @dtn @dnd ◀◀   ▶⏸   ▶▶   🔇   🔉   🔊
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  w    l    y    p    b    z    f    o    u    ;    [    ]    \
+  esc  c    r    s    t    g    m    n    e    i    a    '    ret
+  q    j    v    d    k    _    x    h    /    ,    .    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
