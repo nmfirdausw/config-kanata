@@ -30,6 +30,8 @@
   e_s (tap-hold-release-keys 200 200 e rsft $right-hand-keys)   ;; E with Shift
   i_a (tap-hold-release-keys 200 200 i ralt $right-hand-keys)   ;; I with Alt
   a_c (tap-hold-release-keys 200 200 a rctl $right-hand-keys)   ;; A with Control
+  ctr (layer-while-held control) ;; Control layer
+  spctl (tap-hold-press-timeout 200 9999 spc @ctr spc) ;; Space with Control layer
 )
 
 (defsrc
@@ -56,7 +58,7 @@
   tab  w    l    y    p    b    z    f    o    u    ;    [    ]    \
   esc  @c_c @r_a @s_s @t_m g    m    @n_m @e_s @i_a @a_c '    ret
   q    j    v    d    k    _    x    h    /    ,    .    rsft
-  lctl lmet lalt           spc            ralt rmet rctl
+  lctl lmet lalt           @spctl         ralt rmet rctl
 )
 
 (deflayer layers
@@ -64,6 +66,15 @@
   _    @qwr @cnr _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer control
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    esc  esc  _    _    _    _    _    del  bspc bspc _    _    _
+  _    tab  tab  _    _    _    lft  down up   rght ret  _    _
   _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _              _    _    _
 )
