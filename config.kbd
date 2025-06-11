@@ -12,6 +12,7 @@
 )
 
 (defalias
+  sgr S-grv        ;; Tilde
   mc  C-up         ;; Mission Control
   sls M-spc        ;; Spotlight Search
   dtn S-C-A-M-f5   ;; Dictation
@@ -19,7 +20,11 @@
   lp  S-C-A-M-l    ;; Launchpad
   qwr (layer-switch qwerty)  ;; Switch to QWERTY
   cnr (layer-switch canary)  ;; Switch to Canary
-  grl (layer-while-held layers) ;; Hold grave for layer switching
+  sym (layer-while-held symbol) ;; Symbol layer
+  num (layer-while-held number) ;; Number layer
+  grl (tap-hold 200 200 grv (layer-while-held layers)) ;; Hold grave for layer switching
+  lmet (tap-hold-press-timeout 200 9999 tab @sym tab) ;; Tab with Symbol layer
+  rmet (tap-hold-press-timeout 200 9999 grv @num grv) ;; Grave with Number layer
   
   ;; Home row mods for Canary layout
   c_c (tap-hold-release-keys 200 200 c lctl $left-hand-keys)    ;; C with Control
@@ -40,25 +45,25 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   caps a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet rctl
+  lctl lalt lmet           spc            rmet ralt rctl
 )
 
 (deflayer qwerty
   esc  🔅   🔆   @mc  @sls @dtn @dnd ◀◀   ▶⏸   ▶▶   🔇   🔉   🔊
-  @grl  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   esc  a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet rctl
+  lctl lalt lmet           spc            rmet ralt rctl
 )
 
 (deflayer canary
   esc  🔅   🔆   @mc  @sls @dtn @dnd ◀◀   ▶⏸   ▶▶   🔇   🔉   🔊
   @grl 1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  w    l    y    p    b    z    f    o    u    ;    [    ]    \
-  esc  @c_c @r_a @s_s @t_m g    m    @n_m @e_s @i_a @a_c '    ret
+  tab  w    l    y    p    b    z    f    o    u    '    [    ]    \
+  esc  @c_c @r_a @s_s @t_m g    m    @n_m @e_s @i_a @a_c ;    ret
   q    j    v    d    k    _    x    h    /    ,    .    rsft
-  lctl lmet lalt           @spctl         ralt rmet rctl
+  lctl lalt @lmet          @spctl         @rmet ralt rctl
 )
 
 (deflayer layers
@@ -75,6 +80,24 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    esc  esc  _    _    _    _    _    del  bspc bspc _    _    _
   _    tab  tab  _    _    _    lft  down up   rght ret  _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer symbol
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    S-'  S-9  S-0  S-6  S-\  S-7  S-4  S-[  S-]  S-;  _    _    _
+  _    S-4  S-,  S-.  -    S-8  /    S--  [    ]    ;    _    _
+  grv @sgr  S-2  S-1  S-=  _    S-5  =    \    S-2  S-3  _
+  _    _    _              _              _    _    _
+)
+
+(deflayer number
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    1    2    3    4    5    6    7    8    9    0    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _              _    _    _
 )
