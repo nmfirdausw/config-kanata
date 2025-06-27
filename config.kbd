@@ -18,6 +18,7 @@
   dtn S-C-A-M-f5   ;; Dictation
   dnd S-C-A-M-f6   ;; Do Not Disturb
   lp  S-C-A-M-l    ;; Launchpad
+  meh  (multi ctl met) ;; Combine Mod
   qwr (layer-switch qwerty)  ;; Switch to QWERTY
   cnr (layer-switch canary)  ;; Switch to Canary
   sym (layer-while-held symbol) ;; Symbol layer
@@ -45,7 +46,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   caps a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lalt lmet           spc            rmet ralt rctl
+  fn   lctl lalt lmet           spc            rmet ralt rctl
 )
 
 (deflayer qwerty
@@ -54,7 +55,7 @@
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   esc  a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lalt lmet           spc            rmet ralt rctl
+  fn   lctl lalt lmet           spc            rmet ralt rctl
 )
 
 (deflayer canary
@@ -63,7 +64,7 @@
   tab  w    l    y    p    b    z    f    o    u    '    [    ]    \
   esc  @c_c @r_a @s_s @t_m g    m    @n_m @e_s @i_a @a_c ;    ret
   q    j    v    d    k    _    x    h    /    ,    .    rsft
-  lctl lalt @lmet          @spctl         @rmet ralt rctl
+  fn   lctl lalt @lmet          @spctl         @rmet ralt rctl
 )
 
 (deflayer layers
@@ -72,16 +73,16 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _
+  _    _    _    _              _              _    _    _
 )
 
 (deflayer control
   _    _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    esc  esc  _    _    _    _    _    del  bspc bspc _    _    _
-  _    tab  tab  _    _    _    lft  down up   rght ret  _    _
+  @meh tab  tab  @meh _    _    lft  down up   rght ret  _    _
   _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _
+  _    _    _    _              _              _    _    _
 )
 
 (deflayer symbol
@@ -90,7 +91,7 @@
   _    S-'  S-9  S-0  S-6  S-\  S-7  S-4  S-[  S-]  S-;  _    _    _
   _    S-4  S-,  S-.  -    S-8  /    S--  [    ]    ;    _    _
   grv @sgr  S-2  S-1  S-=  _    S-5  =    \    S-2  S-3  _
-  _    _    _              _              _    _    _
+  _    _    _    _              _              _    _    _
 )
 
 (deflayer number
@@ -99,5 +100,5 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   _    1    2    3    4    5    6    7    8    9    0    _    _
   _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _
+  _    _    _    _              _              _    _    _
 )
